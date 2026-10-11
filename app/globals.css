@@ -163,23 +163,25 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
   background: linear-gradient(180deg, #0b0e12 0%, #1a2129 100%);
 }
 .hero-scene::before {
-  content: ""; position: absolute; top: 64px; right: 0; bottom: 0; width: 62%;
-  background: url("/temp-images/hero-cars.jpg") right center / cover no-repeat;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+  content: ""; position: absolute; inset: 0;
+  background: url("/temp-images/bmw_hero.webp") center 85% / cover no-repeat;
 }
+/* Legibility: dark on the text side, soft shade at the very top and bottom */
 .hero-scene::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.9) 100%);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.28) 0, rgba(0,0,0,0) 140px),
+    linear-gradient(90deg, rgba(8,12,16,0.78) 0%, rgba(8,12,16,0.42) 42%, rgba(8,12,16,0) 68%),
+    linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.55) 100%);
 }
-/* Event tag is part of the hero photo; keep the text for screen readers */
+/* The event tag is no longer part of the photo, so it is shown as text */
 .hero-tag {
-  position: absolute; width: 1px; height: 1px; overflow: hidden;
-  clip-path: inset(50%); white-space: nowrap;
+  position: absolute; top: 96px; right: 64px;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--on-dark);
 }
-.hero-content { max-width: 560px; }
+.hero-content { max-width: 760px; }
 .hero-content h1 {
-  font-size: 64px; line-height: 1.05; color: var(--on-dark); margin-bottom: 24px;
+  font-size: 56px; line-height: 1.08; max-width: 720px; color: var(--on-dark); margin-bottom: 24px;
 }
 .hero-content p {
   color: var(--on-dark-soft); margin-bottom: 32px;
@@ -288,10 +290,12 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 .mission { background: var(--canvas); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
 .mission-inner {
   max-width: 1440px; margin: 0 auto; padding: var(--section-spacing) 64px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+  display: grid; grid-template-columns: 400px 1fr; gap: 64px; align-items: start;
 }
+.about-band { background: var(--surface-soft); }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; }
 .mission-inner h2 { font-size: 40px; line-height: 1.15; }
-.mission-text p { color: var(--body); margin-bottom: 20px; }
+.mission-text p { color: var(--body); font-size: 18px; line-height: 1.6; max-width: 720px; margin-bottom: 20px; }
 .mission-text p:last-child { margin-bottom: 0; }
 
 /* Pre-owned */
@@ -373,7 +377,7 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .about-text h2 { font-size: 40px; line-height: 1.15; margin-bottom: 24px; }
 .about-text p { color: var(--body); margin-bottom: 20px; max-width: 520px; }
-.about-text .text-link-uppercase { margin-top: 12px; }
+.about-text .eyebrow { color: var(--primary); font-size: 13px; max-width: none; margin-bottom: 16px; }
 .about-image { aspect-ratio: 4 / 3; overflow: hidden; background: var(--surface-card); }
 .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -505,7 +509,13 @@ html[data-theme="dark"] .calc-result { border: 1px solid var(--hairline-strong);
 
 @media (max-width: 1024px) {
   .hero-band-dark { padding: 64px 24px 0; min-height: 560px; }
-  .hero-scene::before { width: 100%; opacity: 0.55; }
+  .hero-scene::before { background-position: 78% 85%; }
+  .hero-scene::after {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.28) 0, rgba(0,0,0,0) 120px),
+      linear-gradient(180deg, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.78) 100%);
+  }
+  .hero-tag { top: 88px; right: auto; left: 24px; }
   .hero-disclaimer { right: 24px; }
   .model-grid .model-card { flex-basis: calc((100% - 24px) / 2.3); }
   .mission-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
@@ -531,7 +541,13 @@ html[data-theme="dark"] .calc-result { border: 1px solid var(--hairline-strong);
 }
 @media (max-width: 768px) {
   .nav-title { display: none; }
-  .hero-band-dark { align-items: flex-end; padding: 64px 24px 64px; min-height: 640px; }
+  /* Phones: photo on top, text below on dark, so the text never covers the cars */
+  .hero-scene::before {
+    bottom: auto; height: 300px; background-position: 82% center;
+    -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+  }
+  .hero-band-dark { align-items: flex-end; padding: 64px 24px 64px; min-height: 740px; }
   .hero-content { width: 100%; }
   .model-grid .model-card { flex-basis: 78%; }
   .preowned-grid { grid-template-columns: 1fr; }
@@ -547,7 +563,7 @@ html[data-theme="dark"] .calc-result { border: 1px solid var(--hairline-strong);
   .slide { flex-basis: 85%; }
   .slider-controls { margin-top: 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .hero-content h1 { font-size: 40px; }
+  .hero-content h1 { font-size: 32px; }
   .section-header { flex-direction: column; align-items: flex-start; }
   .section-header h2 { font-size: 36px; }
 }

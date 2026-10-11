@@ -25,7 +25,7 @@ export default function Home() {
           <div className="hero-scene" aria-hidden="true" />
           <p className="hero-tag">El evento de ventas BMW Ultimate</p>
           <div className="hero-content">
-            <h1>ENCUENTRA TU RUTA.</h1>
+            <h1>POTENCIA Y ELEGANCIA EN EQUILIBRIO PERFECTO.</h1>
             <p>
               Disfruta de financiación con TEA del 0,9 % en modelos
               seleccionados. Además, créditos de hasta USD 3.000 en modelos X5
@@ -72,19 +72,19 @@ export default function Home() {
         </section>
 
 
-        <section className="mission">
-          <div className="mission-inner">
-            <h2>Nuestra misión es que cada viaje sea una experiencia inolvidable.</h2>
+        <section className="mission" id="compromiso">
+          <div className="mission-inner split-section">
+            <div className="mission-head">
+              <p className="eyebrow">Nuestra Misión</p>
+              <h2>Compromiso y futuro.</h2>
+            </div>
             <div className="mission-text">
               <p>
-                Traemos BMW Group a Uruguay con una promesa simple: asesoramiento
-                honesto, precios transparentes y un servicio que continúa mucho
-                después de la entrega.
-              </p>
-              <p>
-                Nuestra visión es ser la concesionaria premium más confiable del
-                país, acompañando a cada cliente desde la primera prueba de
-                manejo hasta la próxima generación de movilidad eléctrica.
+                Nuestra misión es que cada viaje sea una experiencia inolvidable.
+                Como concesionaria independiente fundada y dirigida por Gonzalo
+                Villasuso, seleccionamos vehículos de alta gama con una promesa
+                simple: asesoramiento honesto, precios transparentes y un servicio
+                cercano que continúa mucho después de la entrega.
               </p>
             </div>
           </div>
@@ -124,35 +124,36 @@ export default function Home() {
           <FinanceTabs />
         </section>
 
-        <section className="section-container about-section" id="about">
-          <div className="about-grid">
-            <div className="about-text">
-              <h2>Quiénes somos.</h2>
-              <p>
-                Somos la casa oficial de BMW Group en Uruguay, dedicada a llevar
-                la ingeniería, el diseño y la innovación de la marca a cada
-                cliente que cruza nuestras puertas.
-              </p>
-              <p>
-                Desde los últimos modelos eléctricos hasta vehículos seminuevos
-                cuidadosamente seleccionados, nuestro equipo ofrece asesoramiento
-                honesto, precios transparentes y una atención dedicada antes y
-                después de cada venta.
-              </p>
-              <p>
-                Visita nuestro showroom para conocer la gama, probar un auto y
-                descubrir el que mejor se adapta a tu forma de vida.
-              </p>
-              <a href="#contact" className="text-link-uppercase">Visita el showroom <span>›</span></a>
-            </div>
-            <div className="about-image">
-              {/* Temporary Unsplash stand-in: replace with a photo of the real showroom. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1764588070182-8bea428915a5?w=1200&q=80&auto=format&fit=crop"
-                alt="Showroom BMW moderno"
-                loading="lazy"
-              />
+        <section className="about-band" id="about">
+          <div className="section-container about-section">
+            <div className="about-grid">
+              <div className="about-text">
+                <p className="eyebrow">Nosotros</p>
+                <h2>Quiénes somos.</h2>
+                <p>
+                  En Gonzalo Villasuso Automóviles operamos con total autonomía.
+                  No pertenecemos a redes corporativas ni somos concesionarios
+                  oficiales de fábrica: somos una empresa 100% independiente
+                  fundada y liderada por Gonzalo Villasuso.
+                </p>
+                <p>
+                  Esta libertad nos permite seleccionar únicamente los mejores
+                  ejemplares del mercado, priorizando el historial, el estado
+                  impecable y ofreciendo un asesoramiento honesto y sin
+                  presiones comerciales. Cada cliente trata directamente con
+                  nosotros, asegurando transparencia en cada permuta,
+                  financiación o tasación.
+                </p>
+              </div>
+              <div className="about-image">
+                {/* Temporary Unsplash stand-in: replace with a photo of the real showroom. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.unsplash.com/photo-1764588070182-8bea428915a5?w=1200&q=80&auto=format&fit=crop"
+                  alt="Showroom BMW moderno"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
