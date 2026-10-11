@@ -7,10 +7,8 @@ export function FloatingWidgets() {
 
   useEffect(() => {
     const root = document.documentElement;
-    const hero = document.querySelector(".hero-band-dark");
     const update = () => {
-      const limit = hero ? hero.getBoundingClientRect().bottom : 0;
-      if (limit <= 64) root.setAttribute("data-nav-solid", "");
+      if (window.scrollY > 8) root.setAttribute("data-nav-solid", "");
       else root.removeAttribute("data-nav-solid");
     };
     update();
