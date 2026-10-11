@@ -266,7 +266,7 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 .model-card {
   background-color: var(--canvas);
   display: flex; flex-direction: column; justify-content: space-between;
-  padding: 0; border: 1px solid var(--hairline);
+  padding: 0; border: 1px solid var(--hairline); color: inherit; text-decoration: none;
   transition: border-color 0.2s var(--ease);
 }
 .model-card:hover { border-color: var(--hairline-strong); }
@@ -278,7 +278,8 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 }
 .model-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .model-card-info { padding: 24px 24px 0; }
-.model-card > a, .model-card > div + a { margin: 0 24px 24px; }
+.model-card > .text-link-uppercase { margin: 0 24px 24px; }
+.model-card:hover .text-link-uppercase > span { transform: translateX(4px); }
 .model-card-info h3 { font-size: 18px; line-height: 1.4; margin-bottom: 8px; }
 .model-card-info p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
 
@@ -294,7 +295,7 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 
 /* Pre-owned */
 .preowned-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.preowned-card { border: 1px solid var(--hairline); background: var(--canvas); transition: border-color 0.2s var(--ease); }
+.preowned-card { display: block; color: inherit; text-decoration: none; border: 1px solid var(--hairline); background: var(--canvas); transition: border-color 0.2s var(--ease); }
 .preowned-card:hover { border-color: var(--hairline-strong); }
 .preowned-photo { aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-card); }
 .preowned-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -374,6 +375,32 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 .about-text .text-link-uppercase { margin-top: 12px; }
 .about-image { aspect-ratio: 4 / 3; overflow: hidden; background: var(--surface-card); }
 .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Pre-owned detail */
+.detail { padding-top: 64px; }
+.detail-inner { max-width: 1440px; margin: 0 auto; padding: 40px 64px var(--section-spacing); }
+.detail-back { display: inline-block; margin-bottom: 32px; font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s var(--ease); }
+.detail-back:hover { color: var(--primary); }
+.detail-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+.detail-photo { aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-card); border: 1px solid var(--hairline); }
+.detail-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail-eyebrow { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; }
+.detail-summary h1 { font-size: 44px; line-height: 1.1; margin-bottom: 12px; }
+.detail-meta { color: var(--muted); margin-bottom: 24px; }
+.detail-price { font-size: 36px; color: var(--ink); margin-bottom: 28px; font-variant-numeric: tabular-nums; }
+.detail-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.detail-actions .btn-primary, .detail-actions .btn-secondary-dark { text-decoration: none; justify-content: center; width: 100%; display: inline-flex; align-items: center; }
+.detail-note { font-size: 13px; color: var(--muted); }
+.detail-body { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 64px; align-items: start; }
+.detail-body h2 { font-size: 28px; line-height: 1.2; margin-bottom: 20px; }
+.detail-desc { color: var(--body); margin-bottom: 40px; max-width: 560px; }
+.detail-features { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.detail-features li { position: relative; padding-left: 20px; font-size: 15px; color: var(--body); }
+.detail-features li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; background: var(--primary); }
+.detail-specs { margin: 0; border-top: 1px solid var(--hairline-strong); background: var(--canvas); }
+.detail-specs div { display: flex; justify-content: space-between; gap: 24px; padding: 14px 20px; border-bottom: 1px solid var(--hairline); font-size: 15px; }
+.detail-specs dt { color: var(--muted); }
+.detail-specs dd { margin: 0; color: var(--ink); text-align: right; }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
@@ -465,7 +492,8 @@ html[data-theme="dark"] .calc-result { border: 1px solid var(--hairline-strong);
   .hero-disclaimer { right: 24px; }
   .model-grid .model-card { flex-basis: calc((100% - 24px) / 2.3); }
   .mission-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
-  .tab-grid, .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .tab-grid, .contact-grid, .about-grid, .detail-top, .detail-body { grid-template-columns: 1fr; gap: 40px; }
+  .detail-inner { padding: 32px 24px 48px; }
   .ft-panel { padding: 32px 24px; }
   .slide { flex-basis: calc((100% - 24px) / 2); }
   .top-nav { padding: 0 24px; }
@@ -480,6 +508,8 @@ html[data-theme="dark"] .calc-result { border: 1px solid var(--hairline-strong);
   .preowned-grid { grid-template-columns: 1fr; }
   .mission-inner h2 { font-size: 30px; }
   .finance-section .section-header h2, .contact-info h2, .about-text h2 { font-size: 30px; }
+  .detail-summary h1 { font-size: 32px; }
+  .detail-price { font-size: 30px; }
   .contact-info dl { grid-template-columns: 1fr; }
   .contact-form-wrap { padding: 24px; }
   .form-row { grid-template-columns: 1fr; }

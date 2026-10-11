@@ -2,34 +2,10 @@ import { FilterChips } from "./filter-chips";
 import { ContactForm } from "./contact-form";
 import { FinanceTabs } from "./finance-tabs";
 import { FloatingWidgets } from "./floating-widgets";
-import { ThemeSwitch } from "./theme-switch";
-
-const NAV = [
-  { label: "Modelos", menu: true },
-  { label: "Configura el tuyo", menu: false },
-  { label: "Compras", menu: true },
-  { label: "Eléctricos", menu: true },
-];
-
-const MODELS = [
-  { name: "BMW iX3", photo: "1764588061773-6200f626c290", label: "BMW iX3", copy: "Vehículo deportivo 100 % eléctrico con hasta 460 km de autonomía." },
-  { name: "BMW iX", photo: "1666005334804-9f80fb0bc594", label: "BMW iX", copy: "La referencia moderna del lujo eléctrico y la arquitectura minimalista." },
-  { name: "BMW Serie 5 Sedán", photo: "1717082842911-9e55aeaf80cb", label: "BMW Serie 5", copy: "Elegancia ejecutiva con sistemas inteligentes de asistencia digital." },
-  { name: "BMW Serie 8 Coupé", photo: "1615908397724-6dc711db34a7", label: "BMW Serie 8", copy: "Rendimiento sin concesiones y una estética de gran turismo que impresiona." },
-];
-
-// SAMPLE DATA: replace with real inventory. Photos are temporary Unsplash stand-ins.
-const PREOWNED = [
-  { name: "BMW M3 Competition", meta: "2021 · 28.400 km", price: "USD 78.900", photo: "1615908397724-6dc711db34a7" },
-  { name: "BMW M4 Coupé", meta: "2022 · 19.200 km", price: "USD 82.500", photo: "1741889823656-c056b0c43749" },
-  { name: "BMW M3 Sedán", meta: "2020 · 41.000 km", price: "USD 64.900", photo: "1612603810075-b714656621d6" },
-  { name: "BMW Serie 5", meta: "2021 · 36.700 km", price: "USD 49.800", photo: "1717082842911-9e55aeaf80cb" },
-  { name: "BMW Serie 3", meta: "2022 · 22.300 km", price: "USD 41.500", photo: "1739545884078-9cb18fd7fa33" },
-  { name: "BMW X5 xDrive", meta: "2020 · 52.100 km", price: "USD 57.900", photo: "1736771676155-fd112cf57afe" },
-  { name: "BMW Serie 7", meta: "2019 · 61.500 km", price: "USD 52.400", photo: "1643793019410-b6ff1112da9b" },
-  { name: "BMW X1 sDrive", meta: "2022 · 15.800 km", price: "USD 36.900", photo: "1635770311293-b09d08a522fc" },
-  { name: "BMW iX xDrive40", meta: "2023 · 9.600 km", price: "USD 79.500", photo: "1657553839385-6c25d074d781" },
-];
+import { SiteFooter, SiteNav } from "./site-chrome";
+import { PREOWNED, formatKm, formatUsd } from "./data/preowned";
+import { MODELS } from "./data/models";
+import Link from "next/link";
 
 // PLACEHOLDER contact details: replace with the dealer's real information.
 const CONTACT = [
@@ -39,54 +15,10 @@ const CONTACT = [
   { label: "Horario del showroom", lines: ["Lun - Vie: 9:00 - 19:00", "Sáb: 9:00 - 13:00"] },
 ];
 
-const FOOTER = [
-  { title: "Modelos", links: ["Vehículos eléctricos", "Serie 5 y Serie 7", "SAV Serie X", "Automóviles M"] },
-  { title: "Servicios y financiación", links: ["BMW Financial Services", "Leasing para flotas corporativas", "Mantenimiento y garantía", "ConnectedDrive"] },
-  { title: "Vive BMW", links: ["Configurador", "Agendar una prueba de manejo", "Encontrar un concesionario", "Sustentabilidad"] },
-  { title: "Empresa", links: ["BMW Group", "Carreras", "Prensa y medios", "Relaciones con inversores"] },
-];
-
 export default function Home() {
   return (
     <>
-      <nav className="top-nav" aria-label="Principal">
-        <div className="nav-left">
-          <span className="nav-stars" aria-hidden="true">★★★</span>
-          <span className="nav-monogram" aria-hidden="true">GV</span>
-          <span className="nav-title">GONZALO VILLASUSO</span>
-          <span className="nav-stars" aria-hidden="true">★★★</span>
-        </div>
-        <div className="nav-brands" aria-label="Marcas">
-          <a href="#" aria-label="BMW"><div className="bmw-badge" /></a>
-          <a href="#" aria-label="MINI" className="brand-mark">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="20" cy="20" r="17" /><text x="20" y="24" textAnchor="middle" fontSize="10" fontWeight="700" fill="currentColor" stroke="none" letterSpacing="0.5">MINI</text></svg>
-          </a>
-          <a href="#" aria-label="Mazda" className="brand-mark">
-            <svg width="44" height="40" viewBox="0 0 44 40" fill="none" stroke="currentColor" strokeWidth="1.5"><ellipse cx="22" cy="20" rx="20" ry="16" /><path d="M10 27c3-4 5-9 6-14 2 5 4 9 6 10 2-1 4-5 6-10 1 5 3 10 6 14" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </a>
-        </div>
-        <div className="nav-right">
-          <ul className="nav-links">
-            {NAV.map((n) => (
-              <li key={n.label}>
-                <a href="#">
-                  {n.label}
-                  {n.menu && <span className="chevron" aria-hidden="true" />}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="#" className="nav-icon" aria-label="Encontrar un concesionario">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></svg>
-          </a>
-          <a href="#" className="nav-icon" aria-label="Llámanos">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
-          </a>
-          <a href="#" className="nav-icon" aria-label="Buscar">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>
-          </a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <main>
         <section className="hero-band-dark">
@@ -107,7 +39,7 @@ export default function Home() {
           <p className="hero-disclaimer">Algunas imágenes pueden estar generadas por computadora</p>
         </section>
 
-        <section className="section-container">
+        <section className="section-container" id="modelos">
           <div className="section-header">
             <h2>Explora los modelos.</h2>
             <a href="#" className="text-link-uppercase">Ver todos los modelos <span>›</span></a>
@@ -118,7 +50,7 @@ export default function Home() {
           </div>
           <div className="model-grid">
             {MODELS.map((m) => (
-              <div className="model-card" key={m.name}>
+              <Link href={`/modelos/${m.slug}`} className="model-card" key={m.slug}>
                 <div>
                   <div className="model-card-photo">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -133,8 +65,8 @@ export default function Home() {
                     <p>{m.copy}</p>
                   </div>
                 </div>
-                <a href="#" className="text-link-uppercase">Más información <span>›</span></a>
-              </div>
+                <span className="text-link-uppercase">Más información <span>›</span></span>
+              </Link>
             ))}
           </div>
         </section>
@@ -158,13 +90,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section-container">
+        <section className="section-container" id="seminuevos">
           <div className="section-header">
             <h2>Seminuevos.</h2>
           </div>
           <div className="preowned-grid">
             {PREOWNED.map((c) => (
-              <article className="preowned-card" key={c.name}>
+              <Link href={`/seminuevos/${c.slug}`} className="preowned-card" key={c.slug}>
                 <div className="preowned-photo">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -175,10 +107,10 @@ export default function Home() {
                 </div>
                 <div className="preowned-info">
                   <h3>{c.name}</h3>
-                  <p>{c.meta}</p>
-                  <p className="preowned-price">{c.price}</p>
+                  <p>{c.year} · {formatKm(c.km)}</p>
+                  <p className="preowned-price">{formatUsd(c.price)}</p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
           <div className="preowned-footer">
@@ -248,29 +180,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-grid">
-          {FOOTER.map((col) => (
-            <div className="footer-col" key={col.title}>
-              <h4>{col.title}</h4>
-              <ul>
-                {col.links.map((l) => (
-                  <li key={l}><a href="#">{l}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="footer-bottom">
-          <p>© BMW AG 2026. Todos los derechos reservados.</p>
-          <div className="footer-legal">
-            <ThemeSwitch />
-            <a href="#">Política de privacidad</a>
-            <a href="#">Aviso legal</a>
-            <a href="#">Configuración de cookies</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
       <FloatingWidgets />
     </>
   );

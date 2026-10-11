@@ -2,19 +2,19 @@
 
 import { useEffect, useState } from "react";
 
-export function FloatingWidgets() {
+export function FloatingWidgets({ solidNav = false }: { solidNav?: boolean }) {
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
     const root = document.documentElement;
     const update = () => {
-      if (window.scrollY > 8) root.setAttribute("data-nav-solid", "");
+      if (solidNav || window.scrollY > 8) root.setAttribute("data-nav-solid", "");
       else root.removeAttribute("data-nav-solid");
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
-  }, []);
+  }, [solidNav]);
   return (
     <>
       {open && (
