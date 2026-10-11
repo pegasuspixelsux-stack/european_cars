@@ -201,12 +201,6 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 .nav-icon:hover { color: var(--primary); }
 
 /* Floating widgets */
-.cookie-banner {
-  position: fixed; left: 24px; bottom: 24px; z-index: 1100; max-width: 360px;
-  background: var(--canvas); border: 1px solid var(--hairline-strong);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 20px; font-size: 14px;
-}
-.cookie-banner p { margin-bottom: 16px; color: var(--body); }
 .chat-fab {
   position: fixed; right: 24px; bottom: 24px; z-index: 1100;
   width: 56px; height: 56px; border: none; border-radius: 0;
