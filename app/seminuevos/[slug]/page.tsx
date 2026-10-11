@@ -28,6 +28,7 @@ export default async function PreownedDetail({ params }: PageProps<"/seminuevos/
       eyebrow="Seminuevo certificado"
       meta={`${car.year} · ${formatKm(car.km)} · ${car.fuel}`}
       price={formatUsd(car.price)}
+      priceValue={car.price}
       note="Precio de referencia. Consulta por financiación y por la permuta de tu auto actual."
       photo={car.photo}
       description={car.description}

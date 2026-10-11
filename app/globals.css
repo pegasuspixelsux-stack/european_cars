@@ -402,6 +402,10 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 .detail-specs dt { color: var(--muted); }
 .detail-specs dd { margin: 0; color: var(--ink); text-align: right; }
 
+.detail-section { margin-top: 80px; scroll-margin-top: 88px; }
+.detail-section > h2 { font-size: 32px; line-height: 1.2; margin-bottom: 32px; max-width: 820px; }
+.detail-contact .contact-info h2 { font-size: 32px; }
+
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .contact-info h2 { font-size: 40px; line-height: 1.15; margin-bottom: 16px; }

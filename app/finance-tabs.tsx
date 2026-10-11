@@ -40,9 +40,10 @@ function Slider(props: {
   );
 }
 
-function Calculator() {
-  const [price, setPrice] = useState(45000);
-  const [down, setDown] = useState(9000);
+function Calculator({ initialPrice }: { initialPrice?: number }) {
+  const start = Math.min(Math.max(initialPrice ?? 45000, 10000), 150000);
+  const [price, setPrice] = useState(start);
+  const [down, setDown] = useState(Math.round((start * 0.2) / 500) * 500);
   const [term, setTerm] = useState(60);
   const [apr, setApr] = useState(6.9);
 
@@ -137,7 +138,7 @@ function TradeIn() {
   );
 }
 
-export function FinanceTabs() {
+export function FinanceTabs({ price }: { price?: number }) {
   const [tab, setTab] = useState<Tab>("finance");
   return (
     <div className="ft">
@@ -157,7 +158,7 @@ export function FinanceTabs() {
         ))}
       </div>
       <div className="ft-panel" role="tabpanel" id={`panel-${tab}`} aria-labelledby={`tab-${tab}`}>
-        {tab === "finance" ? <Calculator /> : <TradeIn />}
+        {tab === "finance" ? <Calculator initialPrice={price} /> : <TradeIn />}
       </div>
     </div>
   );

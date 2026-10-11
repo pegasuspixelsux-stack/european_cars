@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function ContactForm() {
+export function ContactForm({ defaultTopic = "general", defaultMessage = "" }: { defaultTopic?: string; defaultMessage?: string }) {
   const [sent, setSent] = useState(false);
 
   if (sent) {
@@ -33,7 +33,7 @@ export function ContactForm() {
       <label>Correo electrónico<input name="email" type="email" required autoComplete="email" /></label>
       <label>
         Tema
-        <select name="topic" defaultValue="general">
+        <select name="topic" defaultValue={defaultTopic}>
           <option value="general">Consulta general</option>
           <option value="test-drive">Agendar una prueba de manejo</option>
           <option value="financing">Financiación</option>
@@ -43,7 +43,7 @@ export function ContactForm() {
       </label>
       <label>
         Mensaje
-        <textarea name="message" rows={5} required />
+        <textarea name="message" rows={5} required defaultValue={defaultMessage} />
       </label>
       <button type="submit" className="btn-primary">Enviar mensaje</button>
     </form>
