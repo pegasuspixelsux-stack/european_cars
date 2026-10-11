@@ -1,6 +1,8 @@
 import { FilterChips } from "./filter-chips";
+import { ContactForm } from "./contact-form";
 import { FinanceTabs } from "./finance-tabs";
 import { FloatingWidgets } from "./floating-widgets";
+import { ThemeSwitch } from "./theme-switch";
 
 const NAV = [
   { label: "Models", menu: true },
@@ -27,6 +29,14 @@ const PREOWNED = [
   { name: "BMW 7 Series", meta: "2019 · 61,500 km", price: "USD 52,400", photo: "1643793019410-b6ff1112da9b" },
   { name: "BMW X1 sDrive", meta: "2022 · 15,800 km", price: "USD 36,900", photo: "1635770311293-b09d08a522fc" },
   { name: "BMW iX xDrive40", meta: "2023 · 9,600 km", price: "USD 79,500", photo: "1657553839385-6c25d074d781" },
+];
+
+// PLACEHOLDER contact details: replace with the dealer's real information.
+const CONTACT = [
+  { label: "Address", lines: ["Av. Example 1234", "Montevideo, Uruguay"] },
+  { label: "Phone", lines: ["+598 0000 0000"] },
+  { label: "Email", lines: ["info@example.com"] },
+  { label: "Showroom hours", lines: ["Mon - Fri: 9:00 - 19:00", "Sat: 9:00 - 13:00"] },
 ];
 
 const FOOTER = [
@@ -102,6 +112,10 @@ export default function Home() {
             <h2>Explore Models.</h2>
             <a href="#" className="text-link-uppercase">View All Models <span>›</span></a>
           </div>
+          <div className="preowned-filter explore-filter">
+            <p>Filter available corporate inventory across series and powertrains.</p>
+            <FilterChips />
+          </div>
           <div className="model-grid">
             {MODELS.map((m) => (
               <div className="model-card" key={m.name}>
@@ -122,11 +136,6 @@ export default function Home() {
                 <a href="#" className="text-link-uppercase">Learn More <span>›</span></a>
               </div>
             ))}
-          </div>
-          <div className="preowned-filter after-slider">
-            <h3>Find Your Vehicle.</h3>
-            <p>Filter available corporate inventory across series and powertrains.</p>
-            <FilterChips />
           </div>
         </section>
 
@@ -183,6 +192,59 @@ export default function Home() {
           <FinanceTabs />
         </section>
 
+        <section className="section-container about-section" id="about">
+          <div className="about-grid">
+            <div className="about-text">
+              <h2>About us.</h2>
+              <p>
+                We are the official home of the BMW Group in Uruguay, dedicated
+                to bringing the brand&apos;s engineering, design and innovation
+                to every customer who walks through our doors.
+              </p>
+              <p>
+                From the latest electric models to carefully selected
+                pre-owned vehicles, our team offers honest advice, transparent
+                pricing and attentive service before and after every sale.
+              </p>
+              <p>
+                Visit our showroom to explore the range, take a test drive and
+                discover the car that fits the way you live.
+              </p>
+              <a href="#contact" className="text-link-uppercase">Visit the showroom <span>›</span></a>
+            </div>
+            <div className="about-image">
+              {/* Temporary Unsplash stand-in: replace with a photo of the real showroom. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1764588070182-8bea428915a5?w=1200&q=80&auto=format&fit=crop"
+                alt="Modern BMW showroom"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="section-container contact-section" id="contact">
+          <div className="contact-grid">
+            <div className="contact-info">
+              <h2>Contact us.</h2>
+              <p className="contact-lead">Questions about a model, a test drive or financing? We are happy to help.</p>
+              <dl>
+                {CONTACT.map((c) => (
+                  <div key={c.label}>
+                    <dt>{c.label}</dt>
+                    {c.lines.map((l) => (
+                      <dd key={l}>{l}</dd>
+                    ))}
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="contact-form-wrap">
+              <ContactForm />
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="footer">
@@ -201,6 +263,7 @@ export default function Home() {
         <div className="footer-bottom">
           <p>© BMW AG 2026. All rights reserved.</p>
           <div className="footer-legal">
+            <ThemeSwitch />
             <a href="#">Privacy Policy</a>
             <a href="#">Legal Notice</a>
             <a href="#">Cookie Settings</a>
