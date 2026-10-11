@@ -3,10 +3,11 @@ import { ThemeSwitch } from "./theme-switch";
 import Link from "next/link";
 
 const NAV = [
-  { label: "Modelos", menu: true },
-  { label: "Configura el tuyo", menu: false },
-  { label: "Compras", menu: true },
-  { label: "Eléctricos", menu: true },
+  { label: "Inicio", href: "/", menu: false },
+  { label: "Modelos", href: "#", menu: true },
+  { label: "Configura el tuyo", href: "#", menu: false },
+  { label: "Compras", href: "#", menu: true },
+  { label: "Eléctricos", href: "#", menu: true },
 ];
 
 const FOOTER = [
@@ -19,12 +20,12 @@ const FOOTER = [
 export function SiteNav() {
   return (
     <nav className="top-nav" aria-label="Principal">
-      <div className="nav-left">
+      <Link href="/" className="nav-left nav-home" aria-label="Inicio">
         <span className="nav-stars" aria-hidden="true">★★★</span>
         <span className="nav-monogram" aria-hidden="true">GV</span>
         <span className="nav-title">GONZALO VILLASUSO</span>
         <span className="nav-stars" aria-hidden="true">★★★</span>
-      </div>
+      </Link>
       <div className="nav-brands" aria-label="Marcas">
         <Link href="/" aria-label="BMW"><div className="bmw-badge" /></Link>
         <Link href="/" aria-label="MINI" className="brand-mark">
@@ -38,10 +39,10 @@ export function SiteNav() {
         <ul className="nav-links">
           {NAV.map((n) => (
             <li key={n.label}>
-              <a href="#">
+              <Link href={n.href}>
                 {n.label}
                 {n.menu && <span className="chevron" aria-hidden="true" />}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -54,7 +55,7 @@ export function SiteNav() {
         <a href="#" className="nav-icon" aria-label="Buscar">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>
         </a>
-        <MobileMenu items={NAV.map((n) => n.label)} />
+        <MobileMenu items={NAV.map((n) => ({ label: n.label, href: n.href }))} />
       </div>
     </nav>
   );

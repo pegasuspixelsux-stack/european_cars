@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 
-export function MobileMenu({ items }: { items: string[] }) {
+export function MobileMenu({ items }: { items: { label: string; href: string }[] }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -36,9 +37,9 @@ export function MobileMenu({ items }: { items: string[] }) {
       </button>
       <div id={panelId} className={`mobile-panel${open ? " open" : ""}`} hidden={!open}>
         <ul>
-          {items.map((label) => (
+          {items.map(({ label, href }) => (
             <li key={label}>
-              <a href="#" onClick={() => setOpen(false)}>{label}</a>
+              <Link href={href} onClick={() => setOpen(false)}>{label}</Link>
             </li>
           ))}
         </ul>

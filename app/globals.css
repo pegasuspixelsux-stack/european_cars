@@ -59,6 +59,7 @@ button { cursor: pointer; }
   padding: 0 48px;
 }
 .nav-left, .nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-home { color: inherit; text-decoration: none; }
 .nav-title {
   font-size: 18px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
   white-space: nowrap; color: var(--ink); transition: color 0.2s var(--ease);
@@ -104,7 +105,7 @@ html:not([data-nav-solid]) .nav-stars { color: var(--on-dark); }
 .nav-brands .brand-mark:hover { color: var(--primary); }
 html:not([data-nav-solid]) .nav-brands a { color: var(--on-dark); }
 html:not([data-nav-solid]) .nav-brands .brand-mark:hover { color: var(--on-dark-soft); }
-@media (max-width: 1449px) { .nav-brands { display: none; } }
+@media (max-width: 1519px) { .nav-brands { display: none; } }
 
 /* Transparent over the hero; solid white once scrolled past it */
 html:not([data-nav-solid]) .top-nav .nav-links a,
