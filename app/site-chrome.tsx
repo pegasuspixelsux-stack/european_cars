@@ -1,3 +1,4 @@
+import { MobileMenu } from "./mobile-menu";
 import { ThemeSwitch } from "./theme-switch";
 import Link from "next/link";
 
@@ -53,6 +54,7 @@ export function SiteNav() {
         <a href="#" className="nav-icon" aria-label="Buscar">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>
         </a>
+        <MobileMenu items={NAV.map((n) => n.label)} />
       </div>
     </nav>
   );

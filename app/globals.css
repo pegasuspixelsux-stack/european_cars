@@ -455,6 +455,18 @@ html[data-nav-solid] .top-nav { background-color: var(--canvas); border-bottom-c
 }
 .footer-legal { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
 
+/* Burger menu (hidden on desktop) */
+.nav-burger { display: none; background: transparent; border: none; padding: 0; width: 24px; height: 24px; align-items: center; justify-content: center; }
+.burger-lines { position: relative; display: block; width: 20px; height: 14px; }
+.burger-lines span { position: absolute; left: 0; width: 100%; height: 1.5px; background: currentColor; transition: transform 0.25s var(--ease), opacity 0.2s var(--ease), top 0.25s var(--ease); }
+.burger-lines span:nth-child(1) { top: 0; }
+.burger-lines span:nth-child(2) { top: 6px; }
+.burger-lines span:nth-child(3) { top: 12px; }
+.burger-lines.open span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.burger-lines.open span:nth-child(2) { opacity: 0; }
+.burger-lines.open span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+.mobile-panel { display: none; }
+
 /* Dark theme */
 html[data-theme="dark"] {
   --ink: #f2f2f2;
@@ -502,6 +514,18 @@ html[data-theme="dark"] .calc-result { border: 1px solid var(--hairline-strong);
   .slide { flex-basis: calc((100% - 24px) / 2); }
   .top-nav { padding: 0 24px; }
   .nav-links { display: none; }
+  .nav-burger { display: inline-flex; }
+  .mobile-panel[hidden] { display: none; }
+  .mobile-panel {
+    display: block; position: fixed; top: 64px; left: 0; right: 0; z-index: 999;
+    background: var(--canvas); border-bottom: 1px solid var(--hairline);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.18); padding: 8px 24px 16px;
+    max-height: calc(100svh - 64px); overflow-y: auto;
+  }
+  .mobile-panel ul { list-style: none; margin: 0; padding: 0; }
+  .mobile-panel li + li { border-top: 1px solid var(--hairline); }
+  .mobile-panel a { display: block; padding: 16px 0; font-size: 18px; color: var(--ink); text-decoration: none; }
+  .mobile-panel a:hover { color: var(--primary); }
   .section-container, .footer { padding: 48px 24px; }
 }
 @media (max-width: 768px) {
