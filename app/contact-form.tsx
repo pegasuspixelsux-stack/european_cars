@@ -8,10 +8,10 @@ export function ContactForm() {
   if (sent) {
     return (
       <div className="trade-thanks" role="status">
-        <h3>Thank you.</h3>
-        <p>Your message has been received. We will get back to you shortly.</p>
+        <h3>Gracias.</h3>
+        <p>Recibimos tu mensaje. Te responderemos a la brevedad.</p>
         <button type="button" className="btn-secondary-dark" onClick={() => setSent(false)}>
-          Send another
+          Enviar otro
         </button>
       </div>
     );
@@ -27,25 +27,25 @@ export function ContactForm() {
       }}
     >
       <div className="form-row">
-        <label>Full name<input name="name" required autoComplete="name" /></label>
-        <label>Phone<input name="phone" type="tel" autoComplete="tel" /></label>
+        <label>Nombre completo<input name="name" required autoComplete="name" /></label>
+        <label>Teléfono<input name="phone" type="tel" autoComplete="tel" /></label>
       </div>
-      <label>Email<input name="email" type="email" required autoComplete="email" /></label>
+      <label>Correo electrónico<input name="email" type="email" required autoComplete="email" /></label>
       <label>
-        Topic
+        Tema
         <select name="topic" defaultValue="general">
-          <option value="general">General question</option>
-          <option value="test-drive">Book a test drive</option>
-          <option value="financing">Financing</option>
-          <option value="trade-in">Trade-in</option>
-          <option value="service">Service</option>
+          <option value="general">Consulta general</option>
+          <option value="test-drive">Agendar una prueba de manejo</option>
+          <option value="financing">Financiación</option>
+          <option value="trade-in">Permuta</option>
+          <option value="service">Servicio</option>
         </select>
       </label>
       <label>
-        Message
+        Mensaje
         <textarea name="message" rows={5} required />
       </label>
-      <button type="submit" className="btn-primary">Send message</button>
+      <button type="submit" className="btn-primary">Enviar mensaje</button>
     </form>
   );
 }

@@ -5,58 +5,58 @@ import { FloatingWidgets } from "./floating-widgets";
 import { ThemeSwitch } from "./theme-switch";
 
 const NAV = [
-  { label: "Models", menu: true },
-  { label: "Build Your Own", menu: false },
-  { label: "Shopping", menu: true },
-  { label: "Electric", menu: true },
+  { label: "Modelos", menu: true },
+  { label: "Configura el tuyo", menu: false },
+  { label: "Compras", menu: true },
+  { label: "Eléctricos", menu: true },
 ];
 
 const MODELS = [
-  { name: "BMW iX3", photo: "1764588061773-6200f626c290", label: "BMW iX3", copy: "Fully Electric Sports Activity Vehicle with up to 460 km range." },
-  { name: "BMW iX", photo: "1666005334804-9f80fb0bc594", label: "BMW iX", copy: "The modern benchmark for electric luxury and minimalist architecture." },
-  { name: "BMW 5 Series Sedan", photo: "1717082842911-9e55aeaf80cb", label: "BMW 5 Series", copy: "Executive elegance paired with intelligent digital assistance systems." },
-  { name: "BMW 8 Series Coupe", photo: "1615908397724-6dc711db34a7", label: "BMW 8 Series", copy: "Uncompromising performance and breathtaking grand touring aesthetics." },
+  { name: "BMW iX3", photo: "1764588061773-6200f626c290", label: "BMW iX3", copy: "Vehículo deportivo 100 % eléctrico con hasta 460 km de autonomía." },
+  { name: "BMW iX", photo: "1666005334804-9f80fb0bc594", label: "BMW iX", copy: "La referencia moderna del lujo eléctrico y la arquitectura minimalista." },
+  { name: "BMW Serie 5 Sedán", photo: "1717082842911-9e55aeaf80cb", label: "BMW Serie 5", copy: "Elegancia ejecutiva con sistemas inteligentes de asistencia digital." },
+  { name: "BMW Serie 8 Coupé", photo: "1615908397724-6dc711db34a7", label: "BMW Serie 8", copy: "Rendimiento sin concesiones y una estética de gran turismo que impresiona." },
 ];
 
 // SAMPLE DATA: replace with real inventory. Photos are temporary Unsplash stand-ins.
 const PREOWNED = [
-  { name: "BMW M3 Competition", meta: "2021 · 28,400 km", price: "USD 78,900", photo: "1615908397724-6dc711db34a7" },
-  { name: "BMW M4 Coupe", meta: "2022 · 19,200 km", price: "USD 82,500", photo: "1741889823656-c056b0c43749" },
-  { name: "BMW M3 Sedan", meta: "2020 · 41,000 km", price: "USD 64,900", photo: "1612603810075-b714656621d6" },
-  { name: "BMW 5 Series", meta: "2021 · 36,700 km", price: "USD 49,800", photo: "1717082842911-9e55aeaf80cb" },
-  { name: "BMW 3 Series", meta: "2022 · 22,300 km", price: "USD 41,500", photo: "1739545884078-9cb18fd7fa33" },
-  { name: "BMW X5 xDrive", meta: "2020 · 52,100 km", price: "USD 57,900", photo: "1736771676155-fd112cf57afe" },
-  { name: "BMW 7 Series", meta: "2019 · 61,500 km", price: "USD 52,400", photo: "1643793019410-b6ff1112da9b" },
-  { name: "BMW X1 sDrive", meta: "2022 · 15,800 km", price: "USD 36,900", photo: "1635770311293-b09d08a522fc" },
-  { name: "BMW iX xDrive40", meta: "2023 · 9,600 km", price: "USD 79,500", photo: "1657553839385-6c25d074d781" },
+  { name: "BMW M3 Competition", meta: "2021 · 28.400 km", price: "USD 78.900", photo: "1615908397724-6dc711db34a7" },
+  { name: "BMW M4 Coupé", meta: "2022 · 19.200 km", price: "USD 82.500", photo: "1741889823656-c056b0c43749" },
+  { name: "BMW M3 Sedán", meta: "2020 · 41.000 km", price: "USD 64.900", photo: "1612603810075-b714656621d6" },
+  { name: "BMW Serie 5", meta: "2021 · 36.700 km", price: "USD 49.800", photo: "1717082842911-9e55aeaf80cb" },
+  { name: "BMW Serie 3", meta: "2022 · 22.300 km", price: "USD 41.500", photo: "1739545884078-9cb18fd7fa33" },
+  { name: "BMW X5 xDrive", meta: "2020 · 52.100 km", price: "USD 57.900", photo: "1736771676155-fd112cf57afe" },
+  { name: "BMW Serie 7", meta: "2019 · 61.500 km", price: "USD 52.400", photo: "1643793019410-b6ff1112da9b" },
+  { name: "BMW X1 sDrive", meta: "2022 · 15.800 km", price: "USD 36.900", photo: "1635770311293-b09d08a522fc" },
+  { name: "BMW iX xDrive40", meta: "2023 · 9.600 km", price: "USD 79.500", photo: "1657553839385-6c25d074d781" },
 ];
 
 // PLACEHOLDER contact details: replace with the dealer's real information.
 const CONTACT = [
-  { label: "Address", lines: ["Av. Example 1234", "Montevideo, Uruguay"] },
-  { label: "Phone", lines: ["+598 0000 0000"] },
-  { label: "Email", lines: ["info@example.com"] },
-  { label: "Showroom hours", lines: ["Mon - Fri: 9:00 - 19:00", "Sat: 9:00 - 13:00"] },
+  { label: "Dirección", lines: ["Av. Ejemplo 1234", "Montevideo, Uruguay"] },
+  { label: "Teléfono", lines: ["+598 0000 0000"] },
+  { label: "Correo electrónico", lines: ["info@example.com"] },
+  { label: "Horario del showroom", lines: ["Lun - Vie: 9:00 - 19:00", "Sáb: 9:00 - 13:00"] },
 ];
 
 const FOOTER = [
-  { title: "Models", links: ["Electric Vehicles", "5 Series & 7 Series", "X Series SAVs", "M Automobiles"] },
-  { title: "Services & Financing", links: ["BMW Financial Services", "Corporate Fleet Lease", "Maintenance & Warranty", "ConnectedDrive"] },
-  { title: "Experience BMW", links: ["Configurator", "Book a Test Drive", "Find a Dealer", "Sustainability"] },
-  { title: "Company", links: ["BMW Group", "Careers", "Press & Media", "Investor Relations"] },
+  { title: "Modelos", links: ["Vehículos eléctricos", "Serie 5 y Serie 7", "SAV Serie X", "Automóviles M"] },
+  { title: "Servicios y financiación", links: ["BMW Financial Services", "Leasing para flotas corporativas", "Mantenimiento y garantía", "ConnectedDrive"] },
+  { title: "Vive BMW", links: ["Configurador", "Agendar una prueba de manejo", "Encontrar un concesionario", "Sustentabilidad"] },
+  { title: "Empresa", links: ["BMW Group", "Carreras", "Prensa y medios", "Relaciones con inversores"] },
 ];
 
 export default function Home() {
   return (
     <>
-      <nav className="top-nav" aria-label="Primary">
+      <nav className="top-nav" aria-label="Principal">
         <div className="nav-left">
           <span className="nav-stars" aria-hidden="true">★★★</span>
           <span className="nav-monogram" aria-hidden="true">GV</span>
           <span className="nav-title">GONZALO VILLASUSO</span>
           <span className="nav-stars" aria-hidden="true">★★★</span>
         </div>
-        <div className="nav-brands" aria-label="Brands">
+        <div className="nav-brands" aria-label="Marcas">
           <a href="#" aria-label="BMW"><div className="bmw-badge" /></a>
           <a href="#" aria-label="MINI" className="brand-mark">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="20" cy="20" r="17" /><text x="20" y="24" textAnchor="middle" fontSize="10" fontWeight="700" fill="currentColor" stroke="none" letterSpacing="0.5">MINI</text></svg>
@@ -76,13 +76,13 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <a href="#" className="nav-icon" aria-label="Find a dealer">
+          <a href="#" className="nav-icon" aria-label="Encontrar un concesionario">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></svg>
           </a>
-          <a href="#" className="nav-icon" aria-label="Call us">
+          <a href="#" className="nav-icon" aria-label="Llámanos">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
           </a>
-          <a href="#" className="nav-icon" aria-label="Search">
+          <a href="#" className="nav-icon" aria-label="Buscar">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>
           </a>
         </div>
@@ -91,29 +91,29 @@ export default function Home() {
       <main>
         <section className="hero-band-dark">
           <div className="hero-scene" aria-hidden="true" />
-          <p className="hero-tag">The BMW Ultimate Sales Event</p>
+          <p className="hero-tag">El evento de ventas BMW Ultimate</p>
           <div className="hero-content">
-            <h1>FIND YOUR DRIVE.</h1>
+            <h1>ENCUENTRA TU RUTA.</h1>
             <p>
-              Enjoy 0.9% APR financing on select models. Plus, credits up to
-              $3,000 on select X5 models for loyal customers. Now through
-              August 2nd.
+              Disfruta de financiación con TEA del 0,9 % en modelos
+              seleccionados. Además, créditos de hasta USD 3.000 en modelos X5
+              seleccionados para clientes leales. Hasta el 2 de agosto.
             </p>
             <div className="hero-actions">
-              <button className="btn-primary">Offer details</button>
-              <button className="btn-secondary-on-dark">Build yours</button>
+              <button className="btn-primary">Detalles de la oferta</button>
+              <button className="btn-secondary-on-dark">Configura el tuyo</button>
             </div>
           </div>
-          <p className="hero-disclaimer">Some images may be computer generated</p>
+          <p className="hero-disclaimer">Algunas imágenes pueden estar generadas por computadora</p>
         </section>
 
         <section className="section-container">
           <div className="section-header">
-            <h2>Explore Models.</h2>
-            <a href="#" className="text-link-uppercase">View All Models <span>›</span></a>
+            <h2>Explora los modelos.</h2>
+            <a href="#" className="text-link-uppercase">Ver todos los modelos <span>›</span></a>
           </div>
           <div className="preowned-filter explore-filter">
-            <p>Filter available corporate inventory across series and powertrains.</p>
+            <p>Filtra el inventario disponible por serie y tipo de motorización.</p>
             <FilterChips />
           </div>
           <div className="model-grid">
@@ -133,7 +133,7 @@ export default function Home() {
                     <p>{m.copy}</p>
                   </div>
                 </div>
-                <a href="#" className="text-link-uppercase">Learn More <span>›</span></a>
+                <a href="#" className="text-link-uppercase">Más información <span>›</span></a>
               </div>
             ))}
           </div>
@@ -142,17 +142,17 @@ export default function Home() {
 
         <section className="mission">
           <div className="mission-inner">
-            <h2>Our mission is to make every drive an experience worth remembering.</h2>
+            <h2>Nuestra misión es que cada viaje sea una experiencia inolvidable.</h2>
             <div className="mission-text">
               <p>
-                We bring the BMW Group to Uruguay with a simple promise: honest
-                advice, transparent pricing and service that continues long
-                after delivery.
+                Traemos BMW Group a Uruguay con una promesa simple: asesoramiento
+                honesto, precios transparentes y un servicio que continúa mucho
+                después de la entrega.
               </p>
               <p>
-                Our vision is to be the most trusted premium dealership in the
-                country, guiding every customer from the first test drive to the
-                next generation of electric mobility.
+                Nuestra visión es ser la concesionaria premium más confiable del
+                país, acompañando a cada cliente desde la primera prueba de
+                manejo hasta la próxima generación de movilidad eléctrica.
               </p>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function Home() {
 
         <section className="section-container">
           <div className="section-header">
-            <h2>Pre-Owned.</h2>
+            <h2>Seminuevos.</h2>
           </div>
           <div className="preowned-grid">
             {PREOWNED.map((c) => (
@@ -182,12 +182,12 @@ export default function Home() {
             ))}
           </div>
           <div className="preowned-footer">
-            <a href="#" className="text-link-uppercase">See all inventory <span>›</span></a>
+            <a href="#" className="text-link-uppercase">Ver todo el inventario <span>›</span></a>
           </div>
         </section>
         <section className="section-container finance-section">
           <div className="section-header">
-            <h2>Use your actual car to get the car of your dreams.</h2>
+            <h2>Usa tu auto actual para conseguir el auto de tus sueños.</h2>
           </div>
           <FinanceTabs />
         </section>
@@ -195,29 +195,30 @@ export default function Home() {
         <section className="section-container about-section" id="about">
           <div className="about-grid">
             <div className="about-text">
-              <h2>About us.</h2>
+              <h2>Quiénes somos.</h2>
               <p>
-                We are the official home of the BMW Group in Uruguay, dedicated
-                to bringing the brand&apos;s engineering, design and innovation
-                to every customer who walks through our doors.
+                Somos la casa oficial de BMW Group en Uruguay, dedicada a llevar
+                la ingeniería, el diseño y la innovación de la marca a cada
+                cliente que cruza nuestras puertas.
               </p>
               <p>
-                From the latest electric models to carefully selected
-                pre-owned vehicles, our team offers honest advice, transparent
-                pricing and attentive service before and after every sale.
+                Desde los últimos modelos eléctricos hasta vehículos seminuevos
+                cuidadosamente seleccionados, nuestro equipo ofrece asesoramiento
+                honesto, precios transparentes y una atención dedicada antes y
+                después de cada venta.
               </p>
               <p>
-                Visit our showroom to explore the range, take a test drive and
-                discover the car that fits the way you live.
+                Visita nuestro showroom para conocer la gama, probar un auto y
+                descubrir el que mejor se adapta a tu forma de vida.
               </p>
-              <a href="#contact" className="text-link-uppercase">Visit the showroom <span>›</span></a>
+              <a href="#contact" className="text-link-uppercase">Visita el showroom <span>›</span></a>
             </div>
             <div className="about-image">
               {/* Temporary Unsplash stand-in: replace with a photo of the real showroom. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://images.unsplash.com/photo-1764588070182-8bea428915a5?w=1200&q=80&auto=format&fit=crop"
-                alt="Modern BMW showroom"
+                alt="Showroom BMW moderno"
                 loading="lazy"
               />
             </div>
@@ -227,8 +228,8 @@ export default function Home() {
         <section className="section-container contact-section" id="contact">
           <div className="contact-grid">
             <div className="contact-info">
-              <h2>Contact us.</h2>
-              <p className="contact-lead">Questions about a model, a test drive or financing? We are happy to help.</p>
+              <h2>Contáctanos.</h2>
+              <p className="contact-lead">¿Dudas sobre un modelo, una prueba de manejo o la financiación? Estamos para ayudarte.</p>
               <dl>
                 {CONTACT.map((c) => (
                   <div key={c.label}>
@@ -261,12 +262,12 @@ export default function Home() {
           ))}
         </div>
         <div className="footer-bottom">
-          <p>© BMW AG 2026. All rights reserved.</p>
+          <p>© BMW AG 2026. Todos los derechos reservados.</p>
           <div className="footer-legal">
             <ThemeSwitch />
-            <a href="#">Privacy Policy</a>
-            <a href="#">Legal Notice</a>
-            <a href="#">Cookie Settings</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Aviso legal</a>
+            <a href="#">Configuración de cookies</a>
           </div>
         </div>
       </footer>

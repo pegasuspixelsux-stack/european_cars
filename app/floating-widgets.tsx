@@ -18,14 +18,14 @@ export function FloatingWidgets() {
   return (
     <>
       {open && (
-        <div className="cookie-banner" role="dialog" aria-label="Cookie consent">
-          <p>We use cookies to improve your experience on this site.</p>
+        <div className="cookie-banner" role="dialog" aria-label="Consentimiento de cookies">
+          <p>Usamos cookies para mejorar tu experiencia en este sitio.</p>
           <button className="btn-primary compact" onClick={() => setOpen(false)}>
-            Accept
+            Aceptar
           </button>
         </div>
       )}
-      <button className="chat-fab" aria-label="Open chat">
+      <button className="chat-fab" aria-label="Abrir chat">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 5h16v11H9l-5 4z" /></svg>
       </button>
     </>

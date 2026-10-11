@@ -5,13 +5,13 @@ import { useId, useState } from "react";
 type Tab = "finance" | "trade";
 
 const usd = (n: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+  new Intl.NumberFormat("es-UY", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
 const STEPS = [
-  { title: "Tell us about your car", copy: "Share the brand, model, year and mileage of the vehicle you drive today." },
-  { title: "Get a fast valuation", copy: "Our team reviews your details and sends you an estimated trade-in value." },
-  { title: "Bring it in for inspection", copy: "A short appraisal confirms the condition and locks in your final offer." },
-  { title: "Drive away in your next BMW", copy: "Your trade-in value is applied directly to the car you choose." },
+  { title: "Cuéntanos sobre tu auto", copy: "Indícanos la marca, el modelo, el año y el kilometraje del vehículo que manejas hoy." },
+  { title: "Recibe una tasación rápida", copy: "Nuestro equipo revisa tus datos y te envía un valor estimado de permuta." },
+  { title: "Tráelo para una inspección", copy: "Una breve peritación confirma el estado del auto y fija tu oferta final." },
+  { title: "Estrena tu próximo BMW", copy: "El valor de tu permuta se aplica directamente al auto que elijas." },
 ];
 
 function Slider(props: {
@@ -55,21 +55,21 @@ function Calculator() {
   return (
     <div className="tab-grid">
       <div className="calc-controls">
-        <Slider label="Vehicle price" value={price} min={10000} max={150000} step={1000} format={usd} onChange={setPrice} />
-        <Slider label="Down payment" value={down_} min={0} max={price} step={500} format={usd} onChange={setDown} />
-        <Slider label="Term" value={term} min={12} max={84} step={12} format={(n) => `${n} months`} onChange={setTerm} />
-        <Slider label="Interest rate (APR)" value={apr} min={0} max={15} step={0.1} format={(n) => `${n.toFixed(1)}%`} onChange={setApr} />
+        <Slider label="Precio del vehículo" value={price} min={10000} max={150000} step={1000} format={usd} onChange={setPrice} />
+        <Slider label="Entrega inicial" value={down_} min={0} max={price} step={500} format={usd} onChange={setDown} />
+        <Slider label="Plazo" value={term} min={12} max={84} step={12} format={(n) => `${n} meses`} onChange={setTerm} />
+        <Slider label="Tasa de interés (TEA)" value={apr} min={0} max={15} step={0.1} format={(n) => `${n.toFixed(1).replace(".", ",")} %`} onChange={setApr} />
       </div>
       <div className="calc-result" aria-live="polite">
-        <p className="calc-result-label">Estimated monthly payment</p>
+        <p className="calc-result-label">Cuota mensual estimada</p>
         <p className="calc-result-amount">{usd(monthly)}</p>
         <dl>
-          <div><dt>Amount financed</dt><dd>{usd(principal)}</dd></div>
-          <div><dt>Total of payments</dt><dd>{usd(total)}</dd></div>
-          <div><dt>Total interest</dt><dd>{usd(Math.max(total - principal, 0))}</dd></div>
+          <div><dt>Monto financiado</dt><dd>{usd(principal)}</dd></div>
+          <div><dt>Total de pagos</dt><dd>{usd(total)}</dd></div>
+          <div><dt>Total de intereses</dt><dd>{usd(Math.max(total - principal, 0))}</dd></div>
         </dl>
-        <p className="calc-note">Illustrative estimate only. Final terms depend on credit approval.</p>
-        <button type="button" className="btn-primary">Apply for financing</button>
+        <p className="calc-note">Estimación ilustrativa. Las condiciones finales dependen de la aprobación crediticia.</p>
+        <button type="button" className="btn-primary">Solicitar financiación</button>
       </div>
     </div>
   );
@@ -80,7 +80,7 @@ function TradeIn() {
   return (
     <div className="tab-grid">
       <div className="trade-steps">
-        <h3>How trade-in works</h3>
+        <h3>Cómo funciona la permuta</h3>
         <ol>
           {STEPS.map((s, i) => (
             <li key={s.title}>
@@ -95,9 +95,9 @@ function TradeIn() {
       </div>
       {sent ? (
         <div className="trade-thanks" role="status">
-          <h3>Thank you.</h3>
-          <p>We received your details and will contact you shortly with your trade-in estimate.</p>
-          <button type="button" className="btn-secondary-dark" onClick={() => setSent(false)}>Send another</button>
+          <h3>Gracias.</h3>
+          <p>Recibimos tus datos y te contactaremos a la brevedad con la estimación de tu permuta.</p>
+          <button type="button" className="btn-secondary-dark" onClick={() => setSent(false)}>Enviar otro</button>
         </div>
       ) : (
         <form
@@ -109,28 +109,28 @@ function TradeIn() {
           }}
         >
           <div className="form-row">
-            <label>Full name<input name="name" required autoComplete="name" /></label>
-            <label>Phone<input name="phone" type="tel" required autoComplete="tel" /></label>
+            <label>Nombre completo<input name="name" required autoComplete="name" /></label>
+            <label>Teléfono<input name="phone" type="tel" required autoComplete="tel" /></label>
           </div>
-          <label>Email<input name="email" type="email" required autoComplete="email" /></label>
+          <label>Correo electrónico<input name="email" type="email" required autoComplete="email" /></label>
           <div className="form-row">
-            <label>Brand<input name="brand" required placeholder="e.g. Toyota" /></label>
-            <label>Model<input name="model" required placeholder="e.g. Corolla" /></label>
+            <label>Marca<input name="brand" required placeholder="p. ej. Toyota" /></label>
+            <label>Modelo<input name="model" required placeholder="p. ej. Corolla" /></label>
           </div>
           <div className="form-row">
-            <label>Year<input name="year" type="number" min="1990" max="2027" required /></label>
-            <label>Mileage (km)<input name="km" type="number" min="0" required /></label>
+            <label>Año<input name="year" type="number" min="1990" max="2027" required /></label>
+            <label>Kilometraje (km)<input name="km" type="number" min="0" required /></label>
           </div>
           <label>
-            Condition
+            Estado
             <select name="condition" defaultValue="good">
-              <option value="excellent">Excellent</option>
-              <option value="good">Good</option>
-              <option value="fair">Fair</option>
-              <option value="needs-work">Needs work</option>
+              <option value="excellent">Excelente</option>
+              <option value="good">Bueno</option>
+              <option value="fair">Regular</option>
+              <option value="needs-work">Necesita arreglos</option>
             </select>
           </label>
-          <button type="submit" className="btn-primary">Get my trade-in value</button>
+          <button type="submit" className="btn-primary">Quiero el valor de mi permuta</button>
         </form>
       )}
     </div>
@@ -141,7 +141,7 @@ export function FinanceTabs() {
   const [tab, setTab] = useState<Tab>("finance");
   return (
     <div className="ft">
-      <div className="ft-tabs" role="tablist" aria-label="Financing and trade-in">
+      <div className="ft-tabs" role="tablist" aria-label="Financiación y permuta">
         {(["finance", "trade"] as const).map((t) => (
           <button
             key={t}
@@ -152,7 +152,7 @@ export function FinanceTabs() {
             className={`ft-tab${tab === t ? " active" : ""}`}
             onClick={() => setTab(t)}
           >
-            {t === "finance" ? "Finance calculator" : "Trade-in"}
+            {t === "finance" ? "Calculadora de financiación" : "Permuta"}
           </button>
         ))}
       </div>

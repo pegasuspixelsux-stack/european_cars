@@ -29,11 +29,11 @@ export function ThemeSwitch() {
       type="button"
       role="switch"
       aria-checked={dark}
-      aria-label="Dark theme"
+      aria-label="Tema oscuro"
       className="theme-switch"
       onClick={toggle}
     >
-      <span>Dark theme</span>
+      <span>Tema oscuro</span>
       <span className="theme-switch-track" aria-hidden="true">
         <span className="theme-switch-thumb" />
       </span>

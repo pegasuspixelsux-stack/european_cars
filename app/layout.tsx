@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BMW European Cars — Corporate & Innovation",
-  description: "Explore the BMW lineup: electric, sedans, SAVs and M performance.",
+  title: "BMW European Cars — Corporativo e innovación",
+  description: "Explora la gama BMW: eléctricos, sedanes, SAV y M Performance.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+    <html lang="es" className="h-full antialiased" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

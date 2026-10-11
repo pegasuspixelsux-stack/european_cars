@@ -46,18 +46,18 @@ export function ModelSlider() {
   return (
     <div className="slider">
       <div className="slider-controls">
-        <button type="button" aria-label="Previous models" onClick={() => scrollBy(-1)}>
+        <button type="button" aria-label="Modelos anteriores" onClick={() => scrollBy(-1)}>
           ‹
         </button>
-        <button type="button" aria-label="Next models" onClick={() => scrollBy(1)}>
+        <button type="button" aria-label="Modelos siguientes" onClick={() => scrollBy(1)}>
           ›
         </button>
       </div>
-      <div className="slider-track" ref={track} tabIndex={0} aria-label="BMW models">
+      <div className="slider-track" ref={track} tabIndex={0} aria-label="Modelos BMW">
         {MODELS.map((m) => (
           <figure className="slide" key={m.slug}>
             <div className="slide-image">
-              {m.isNew && <span className="slide-badge">New</span>}
+              {m.isNew && <span className="slide-badge">Nuevo</span>}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={local[m.slug] ? `/temp-images/models/${m.slug}.webp` : unsplash(m.stock)}
